@@ -1,0 +1,20 @@
+# docker/docker-compose.yml
+version: '3.8'
+
+services:
+  electrs:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    volumes:
+      - ./.bitcoin/.cookie:/root/.bitcoin/.cookie
+      - ./.electrs/config.toml:/root/.electrs/config.toml
+      - ./.electrs/db:/root/.electrs/db
+    ports:
+      - "50001:50001"
+    networks:
+      - electrs_network
+
+networks:
+  electrs_network:
+    driver: bridge

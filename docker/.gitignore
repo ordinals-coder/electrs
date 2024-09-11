@@ -1,0 +1,9 @@
+# Ignore .cookie file in .bitcoin directory
+.bitcoin/.cookie
+
+# Ignore everything in .electrs/.db directory except .gitkeep
+.electrs/db/**/*
+!.electrs/.db/.gitkeep
+
+# Ignore .electrs.toml file
+.electrs/config.toml
